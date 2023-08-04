@@ -1,18 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { NextFont } from "next/dist/compiled/@next/font";
-import { cn } from "@/lib/utils";
+import LogoFull from "./LogoFull";
 
-type HeroProps = {
-  permanentMarkerFont: NextFont;
-};
-
-const Hero = ({ permanentMarkerFont }: HeroProps) => {
+const Hero = () => {
   return (
     <>
-      <h1 className={cn(permanentMarkerFont.className, "text-7xl md:text-8xl")}>
-        Kaizen
-      </h1>
+      <LogoFull />
       <motion.p
         initial={{ opacity: 0, translateY: -10 }}
         animate={{ opacity: 1, translateY: 0 }}

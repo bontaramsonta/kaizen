@@ -5,9 +5,7 @@ export default async function Page() {
     <SignIn
       appearance={{
         elements: {
-          card: {
-            border: "none",
-          },
+          footerAction: "hidden",
         },
       }}
     />
