@@ -3,7 +3,6 @@ import { Permanent_Marker } from "next/font/google";
 
 const marker = Permanent_Marker({
   subsets: ["latin"],
-  variable: "--font-permanent-marker",
   weight: "400",
 });
 export default function Home() {
