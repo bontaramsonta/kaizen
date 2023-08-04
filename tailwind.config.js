@@ -16,9 +16,6 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        permanentmarker: ["--var(--font-permanent-marker)", "cursive"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
