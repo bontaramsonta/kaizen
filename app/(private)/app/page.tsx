@@ -18,7 +18,7 @@ function Quote() {
 
 function App() {
   return (
-    <div className="container flex flex-col items-center space-y-4">
+    <div className="container mt-1 flex flex-col items-center space-y-4">
       <Quote />
       <TaskList />
     </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Permanent_Marker } from "next/font/google";
-import Link from "next/link";
+import * as SheetUI from "@/components/ui/sheet";
+import { UserButton } from "@clerk/nextjs";
+import Options from "@/components/Options";
 
 const marker = Permanent_Marker({
   subsets: ["latin"],
@@ -20,19 +22,9 @@ function SearchBar() {
   );
 }
 
-function Profile() {
+function Logo() {
   return (
-    <Link
-      href={"/work-in-progress"}
-      prefetch={false}
-      className="h-10 w-10 rounded-full bg-blue-100"
-    ></Link>
-  );
-}
-
-function Navbar() {
-  return (
-    <div className="flex items-center justify-between px-5 pb-2 pt-4">
+    <SheetUI.SheetTrigger>
       <div
         about="logo mobile"
         className={cn(
@@ -51,8 +43,17 @@ function Navbar() {
       >
         kaizen
       </div>
+    </SheetUI.SheetTrigger>
+  );
+}
+
+function Navbar() {
+  return (
+    <div className="flex items-center justify-between px-5 pb-2 pt-4">
+      <Logo />
+      <Options />
       <SearchBar />
-      <Profile />
+      <UserButton />
     </div>
   );
 }
@@ -60,10 +61,12 @@ function Navbar() {
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[#FFF8E7]">
-      <Navbar />
-      <main className="flex flex-col items-center justify-center space-y-2">
-        {children}
-      </main>
+      <SheetUI.Sheet>
+        <Navbar />
+        <main className="flex flex-col items-center justify-center space-y-2">
+          {children}
+        </main>
+      </SheetUI.Sheet>
     </div>
   );
 }

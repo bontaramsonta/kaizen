@@ -6,7 +6,7 @@ import { tasks } from "@/demo-data/tasks";
 
 export default function TaskList() {
   return (
-    <ul className="flex w-full flex-col space-y-4">
+    <ul className="flex w-full max-w-lg flex-col space-y-4">
       {tasks.map((task) => (
         <Task key={task.id} data={task as TaskType} />
       ))}
