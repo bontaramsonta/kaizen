@@ -1,12 +1,24 @@
-import Greetings from "@/components/Greetings";
-import { SignOutButton } from "@clerk/nextjs";
 import React from "react";
+import { cn } from "@/lib/utils";
+import TaskList from "@/components/task/TaskList";
+import { Permanent_Marker } from "next/font/google";
+
+const marker = Permanent_Marker({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+function Quote() {
+  return (
+    <p className={cn(marker.className, "text-[#4A4840]")}>You're doing great</p>
+  );
+}
 
 function App() {
   return (
-    <div className="container flex flex-col min-h-screen justify-center space-y-2 items-center">
-      <Greetings />
-      <SignOutButton />
+    <div className="container flex flex-col items-center space-y-4">
+      <Quote />
+      <TaskList />
     </div>
   );
 }

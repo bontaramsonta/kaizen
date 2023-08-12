@@ -2,14 +2,14 @@
 import React from "react";
 import { useAuth, RedirectToSignIn } from "@clerk/nextjs";
 
-function SessionChecker() {
+function SessionChecker({ children }: { children: React.ReactNode }) {
   const { isLoaded, isSignedIn } = useAuth();
 
   if (!isLoaded || !isSignedIn) {
     return <RedirectToSignIn />;
   }
 
-  return null;
+  return <>{children}</>;
 }
 
 export default SessionChecker;

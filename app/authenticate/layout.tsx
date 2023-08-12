@@ -1,12 +1,11 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import LogoFull from "@/components/LogoFull";
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <>
-        <div className="container relative h-screen flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+        <div className="container relative grid h-screen flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
           <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
             <div className="absolute inset-0 bg-zinc-900" />
             <div className="relative z-20 flex items-center text-lg font-medium">
@@ -40,7 +39,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
               <div className="flex flex-col space-y-2 text-center">
                 <LogoFull variant={"small"} />
               </div>
-              <div className="w-full flex justify-center">{children}</div>
+              <div className="flex w-full justify-center">{children}</div>
               <p className="px-8 text-center text-sm text-muted-foreground">
                 By clicking continue, you agree to our{" "}
                 <Link

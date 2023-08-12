@@ -1,8 +1,4 @@
-import Hero from "@/components/Hero";
+import { redirect } from "next/navigation";
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center space-y-2 justify-center bg-[#FFF8E7]">
-      <Hero />
-    </main>
-  );
+  redirect("/app");
 }
