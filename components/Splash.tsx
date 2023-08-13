@@ -15,7 +15,7 @@ const Splash = ({ children }: { children: React.ReactNode | null }) => {
   return isLoaded ? (
     children
   ) : (
-    <main className="flex min-h-screen flex-col items-center justify-center space-y-2 bg-[#FFF8E7]">
+    <main className="bg-branded-bg dark:bg-branded-bg-dark flex min-h-screen flex-col items-center justify-center space-y-2">
       <LogoFull />
       <motion.p
         initial={{ opacity: 0, translateY: -10 }}

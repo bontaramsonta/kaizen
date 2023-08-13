@@ -10,7 +10,7 @@ const marker = Permanent_Marker({
 
 export default function page() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center space-y-4 bg-[#FFF8E7]">
+    <div className="bg-branded-bg dark:bg-branded-bg-dark flex min-h-screen flex-col items-center justify-center space-y-4">
       <h1 className={cn(marker.className, "px-5 text-center text-2xl")}>
         This page is under development
       </h1>

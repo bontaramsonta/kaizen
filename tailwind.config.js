@@ -17,13 +17,15 @@ module.exports = {
     },
     extend: {
       colors: {
-        bg: {
-          DEFAULT: "hsl(var(--bg))",
-          dark: "hsl(var(--bg-dark))",
-        },
         branded: {
-          DEFAULT: "hsl(var(--branded))",
-          dark: "hsl(var(--branded-dark))",
+          bg: {
+            DEFAULT: "#FFF8E7",
+            dark: "hsl(var(--bg-dark))",
+          },
+          text: {
+            DEFAULT: "#4A4840",
+            dark: "#fef9e1",
+          },
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

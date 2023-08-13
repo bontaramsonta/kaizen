@@ -5,13 +5,12 @@ import React from "react";
 function getDarkMode() {
   // get dark mode from local storage
   let mode = localStorage.getItem("mode");
-  //! just until dark mode is ready
-  // if (!mode) {
-  //   // get system dark mode
-  //   mode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  //     ? "dark"
-  //     : "light";
-  // }
+  if (!mode) {
+    // get system dark mode
+    mode = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
   return mode === "dark" ? "dark" : "light";
 }
 
@@ -24,18 +23,11 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = React.useState<"dark" | "light">(getDarkMode);
 
   React.useEffect(() => {
-    // once window loaded set mode
-    const handleDarkModeInit = () => {
-      if (mode === "dark") {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-    };
-    window.addEventListener("load", handleDarkModeInit);
-    return () => {
-      window.removeEventListener("load", handleDarkModeInit);
-    };
+    if (mode === "dark") {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
   }, []);
 
   function toggleDarkMode() {

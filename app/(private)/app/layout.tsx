@@ -4,6 +4,7 @@ import { Permanent_Marker } from "next/font/google";
 import * as SheetUI from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Options from "@/components/Options";
+import { Search } from "lucide-react";
 
 const marker = Permanent_Marker({
   subsets: ["latin"],
@@ -12,19 +13,23 @@ const marker = Permanent_Marker({
 
 function SearchBar() {
   return (
-    <div className="mx-3 flex flex-1 items-center">
+    <div className="relative mx-3 flex flex-1 items-center">
       <input
+        id="search"
         className="w-full rounded-full border-2 border-slate-200 px-4 py-2 dark:border-slate-700 dark:bg-black"
         type="text"
         placeholder="ctrl + k to search"
       />
+      <label htmlFor="search">
+        <Search className="absolute right-0 top-[50%] mr-1 translate-x-[-50%] translate-y-[-50%]" />
+      </label>
     </div>
   );
 }
 
-function Logo() {
+function Logo({ className }: { className?: string }) {
   return (
-    <SheetUI.SheetTrigger>
+    <SheetUI.SheetTrigger className={cn(className)}>
       <div
         about="logo mobile"
         className={cn(
@@ -49,7 +54,7 @@ function Logo() {
 
 function Navbar() {
   return (
-    <div className="flex items-center justify-between px-5 pb-2 pt-4">
+    <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pb-2 pt-4">
       <Logo />
       <Options />
       <SearchBar />
@@ -60,7 +65,7 @@ function Navbar() {
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#FFF8E7] dark:bg-[#2d2a26]">
+    <div className="bg-branded-bg min-h-screen dark:bg-black">
       <SheetUI.Sheet>
         <Navbar />
         <main className="flex flex-col items-center justify-center space-y-2">
