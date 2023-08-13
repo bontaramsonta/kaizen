@@ -14,7 +14,7 @@ function SearchBar() {
   return (
     <div className="mx-3 flex flex-1 items-center">
       <input
-        className="w-full rounded-full border-2 border-slate-200 px-4 py-2"
+        className="w-full rounded-full border-2 border-slate-200 px-4 py-2 dark:border-slate-700 dark:bg-black"
         type="text"
         placeholder="ctrl + k to search"
       />
@@ -60,7 +60,7 @@ function Navbar() {
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#FFF8E7]">
+    <div className="min-h-screen bg-[#FFF8E7] dark:bg-[#2d2a26]">
       <SheetUI.Sheet>
         <Navbar />
         <main className="flex flex-col items-center justify-center space-y-2">

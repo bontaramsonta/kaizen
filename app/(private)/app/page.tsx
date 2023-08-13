@@ -10,7 +10,7 @@ const marker = Permanent_Marker({
 
 function Quote() {
   return (
-    <p className={cn(marker.className, "text-[#4A4840]")}>
+    <p className={cn(marker.className, "text-[#4A4840] dark:text-[#efe9cd]")}>
       You&apos;re doing great
     </p>
   );

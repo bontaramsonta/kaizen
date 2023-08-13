@@ -4,21 +4,10 @@ import * as SheetUI from "@/components/ui/sheet";
 import { SignOutButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Settings2, MoonStar, Sun } from "lucide-react";
-
-function getDarkMode() {
-  // get dark mode from local storage
-  let darkMode = localStorage.getItem("darkMode");
-  if (!darkMode) {
-    // get system dark mode
-    darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  }
-  return darkMode === "dark" ? "dark" : "light";
-}
+import { ThemeContext } from "@/context/ThemeProvider";
 
 export default function Options() {
-  const [darkMode, setDarkMode] = React.useState<"dark" | "light">(getDarkMode);
+  const { mode, toggleDarkMode } = React.useContext(ThemeContext);
 
   return (
     <SheetUI.SheetContent side={"left"}>
@@ -35,13 +24,13 @@ export default function Options() {
               <Settings2 className="mr-2" />
               <span>preferences</span>
             </Button>
-            {darkMode === "dark" ? (
-              <Button variant={"ghost"} onClick={() => setDarkMode("light")}>
+            {mode === "dark" ? (
+              <Button variant={"ghost"} onClick={() => toggleDarkMode()}>
                 <Sun className="mr-2" />
                 <span>switch to light mode</span>
               </Button>
             ) : (
-              <Button variant={"ghost"} onClick={() => setDarkMode("dark")}>
+              <Button variant={"ghost"} onClick={() => toggleDarkMode()}>
                 <MoonStar className="mr-2" />
                 <span>switch to dark mode</span>
               </Button>
